@@ -8,19 +8,26 @@ import java.util.Scanner;
 public class DCuentas {
     
     private int idcuenta;
-    private double doubCantAhorroSoles;
+    private double doubCantCAhorroSoles;
     private double doubCantCorrienteSoles;
     private double doubCantAhorroDolares;
     private double doubCantCorrienteDolares;
     private String Nombre;
     private String Descripcion;
+    private String fec_in;
     private String moneda;
     private String Base;
 
     public int getIdcuenta() {
         return idcuenta;
     }
+      public double getDoubCantCAhorroSoles() {
+        return doubCantCAhorroSoles;
+    }
 
+    public void setDoubCantCAhorroSoles(double doubCantCAhorroSoles) {
+        this.doubCantCAhorroSoles = doubCantCAhorroSoles;
+    }
     public void setIdcuenta(int idcuenta) {
         this.idcuenta = idcuenta;
     }
@@ -69,13 +76,6 @@ public class DCuentas {
         this.Base = Base;
     }
 
-    public double getDoubCantAhorroSoles() {
-        return doubCantAhorroSoles;
-    }
-
-    public void setDoubCantAhorroSoles(double doubCantAhorroSoles) {
-        this.doubCantAhorroSoles = doubCantAhorroSoles;
-    }
 
     public double getDoubCantCorrienteSoles() {
         return doubCantCorrienteSoles;
@@ -100,9 +100,19 @@ public class DCuentas {
     public void setDoubCantCorrienteDolares(double doubCantCorrienteDolares) {
         this.doubCantCorrienteDolares = doubCantCorrienteDolares;
     }
-    
-    
-    
+      public String getFec_in() {
+        return fec_in;
+    }
+
+    public void setFec_in(String fec_in) {
+        this.fec_in = fec_in;
+    }
+   // FECHA ACTUAL AUTOMATICA     
+    public static String FechaActual()
+    {
+        Date fecha = new Date();
+        return fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + (fecha.getYear()+1900);
+    }
       
     
 }

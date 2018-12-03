@@ -112,22 +112,34 @@ public class CajeroFinal {
         P=sc.nextLine();
                     }while (!(U.equals("admin")&&P.equals("1234")));
                          // clienteMenu 
-                      do {
-                opc3 = Menu3();
+       do {
+            opc3 = Menu3();
             switch(opc3)
             {
              case 1 : 
-                 opc4 = Menu4();
+             opc4 = Menu4();
              switch(opc4)
              {
-                 case 1 :  
-             }
+                 case 1 : 
+                     try {
+                     System.out.println("***CUENTA AHORRO SOLES***"); 
+                     CAhorroSoles CS = new CAhorroSoles("AhorroSoles");
+                         System.out.println("Ingrese la Cantidad a Iniciar");
+                         double cant  = sc.nextDouble();
+                        CS.setDoubCantCAhorroSoles(cant);
+                         CS.FechaActual();
+                         CS.RegistrarCuentaSoles();
+                     
+                     }catch(IOException e){
+                               System.out.println(e.toString());
+                             }
                     break;
-             case 2 : System.out.println("");
-                    break;      
+                 case 2 : System.out.println("");
+                    break;
+             }       
             }
          
-     }while(opc3!=5);
+          }while(opc3!=5);
                     break;
        }
    }while(opc2!=3 );
