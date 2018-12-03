@@ -9,7 +9,7 @@ public class CajeroFinal {
     public static void main(String[] args) {
 
    Scanner sc = new Scanner(System.in);
-   int opc, opc2 =0, opc3 = 0;
+   int opc, opc2 =0, opc3 = 0, opc4 = 0;
    String U,P;
    
   // menu Princial 
@@ -116,9 +116,14 @@ public class CajeroFinal {
                 opc3 = Menu3();
             switch(opc3)
             {
-             case 1 : System.out.println("Agregar información");
+             case 1 : 
+                 opc4 = Menu4();
+             switch(opc4)
+             {
+                 case 1 :  
+             }
                     break;
-             case 2 : System.out.println("Crear cuentas");
+             case 2 : System.out.println("");
                     break;      
             }
          
@@ -174,6 +179,23 @@ public class CajeroFinal {
             +"(2) DEPOSITO \n"
             +"(3) RETIRO\n"
             +"(4) MOVIMIENTO\n"
+            +"(5) SALIR\n");
+            return Integer.parseInt(sc.next());
+        }
+        catch(Exception e){
+            return 0;
+        }   
+    }
+      
+          public static int Menu4()
+    {
+        try{
+            Scanner sc = new Scanner(System.in);
+            System.out.println("\nSeleccione la cuenta a crear\n"
+            +"(1) AHORRO SOLES \n"
+            +"(2) CORRIENTES SOLES \n"
+            +"(3) AHORRO DOLARES\n"
+            +"(4) CORRIENTE DOLARES\n"
             +"(5) SALIR\n");
             return Integer.parseInt(sc.next());
         }
