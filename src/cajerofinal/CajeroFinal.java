@@ -9,7 +9,7 @@ public class CajeroFinal {
     public static void main(String[] args) {
 
    Scanner sc = new Scanner(System.in);
-   int opc, opc2 =0, opc3 = 0, opc4 = 0;
+   int opc, opc2 =0, opc3 = 0, opc4 = 0, opc5 = 0;
    String U,P;
    
   // menu Princial 
@@ -116,7 +116,9 @@ public class CajeroFinal {
             opc3 = Menu3();
             switch(opc3)
             {
+            // CUENTAS A CREAR    
              case 1 : 
+         do {        
              opc4 = Menu4();
              switch(opc4)
              {
@@ -125,8 +127,8 @@ public class CajeroFinal {
                      System.out.println("***CUENTA AHORRO SOLES***"); 
                      CAhorroSoles CS = new CAhorroSoles("AhorroSoles");
                          System.out.println("Ingrese la Cantidad a Iniciar");
-                         double cant  = sc.nextDouble();
-                        CS.setDoubCantCAhorroSoles(cant);
+                         int cant  = sc.nextInt();
+                        CS.setIntCantCAhorroSoles(cant);
                          CS.FechaActual();
                          CS.RegistrarCuentaSoles();
                      
@@ -136,9 +138,31 @@ public class CajeroFinal {
                     break;
                  case 2 : System.out.println("");
                     break;
-             }       
-            }
-         
+             }// Finaliza el Switch de cuentas a crear.
+         }while(opc4 != 5);
+             break;
+             // DEPOSITAR EN CUENTA 
+                case 2 :
+              do {
+                  opc5 = Menu5();
+                  switch(opc5)
+                  {
+                      case 1: 
+                          try{
+                     System.out.println("***CUENTA AHORRO SOLES***"); 
+                     RegistrarDatos Reg = new RegistrarDatos("AhorroSoles");
+                     Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
+                     System.out.println("INGRESE SU ID CORRESPONDIENTE");
+                     System.out.println("INGRESE SU MONTO A DEPOSITAR");
+                     
+                          }catch(IOException e){
+                              System.out.println(e.toString());
+                          }
+                  }
+              }while(opc5 != 5);
+                    break;
+           
+            } //Finaliza switch opc3
           }while(opc3!=5);
                     break;
        }
@@ -204,6 +228,24 @@ public class CajeroFinal {
         try{
             Scanner sc = new Scanner(System.in);
             System.out.println("\nSeleccione la cuenta a crear\n"
+            +"(1) AHORRO SOLES \n"
+            +"(2) CORRIENTES SOLES \n"
+            +"(3) AHORRO DOLARES\n"
+            +"(4) CORRIENTE DOLARES\n"
+            +"(5) SALIR\n");
+            return Integer.parseInt(sc.next());
+        }
+        catch(Exception e){
+            return 0;
+        }   
+    }
+    // MENU 5
+          
+         public static int Menu5()
+    {
+        try{
+            Scanner sc = new Scanner(System.in);
+            System.out.println("\nSeleccione una cuenta a depositar\n"
             +"(1) AHORRO SOLES \n"
             +"(2) CORRIENTES SOLES \n"
             +"(3) AHORRO DOLARES\n"
