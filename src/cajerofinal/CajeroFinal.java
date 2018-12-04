@@ -37,7 +37,7 @@ public class CajeroFinal {
                         System.out.println("Ingrese Nombre: "); Clie.setNombre(sc.nextLine());
                         System.out.println("Ingrese Apellido: "); Clie.setApellidos(sc.nextLine());
                         System.out.println("Ingrese DNI: "); Clie.setDNI(sc.nextLine());
-                        System.out.println("Ingrese Contraseña: ");Clie.setContrasena(sc.nextLine());
+                        System.out.println("Ingrese 8 digitos//Contraseña: ");Clie.setContrasena(sc.nextLine());
                         Clie.FechaActual();
                         Clie.RegistrarPersona();
                         System.out.println("¡Registro Guardado!"); 
@@ -153,8 +153,11 @@ public class CajeroFinal {
                      RegistrarDatos Reg = new RegistrarDatos("AhorroSoles");
                      Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
                      System.out.println("INGRESE SU ID CORRESPONDIENTE");
+                     String id = sc.next();
                      System.out.println("INGRESE SU MONTO A DEPOSITAR");
-                     
+                     int mont = sc.nextInt();
+                     CAhorroSoles CS = new CAhorroSoles("AhorroSoles");
+                     CS.ModificarDeposito(id, mont);
                           }catch(IOException e){
                               System.out.println(e.toString());
                           }

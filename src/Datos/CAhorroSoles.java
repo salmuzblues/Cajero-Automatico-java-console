@@ -58,11 +58,9 @@ public class CAhorroSoles extends DCuentas{
                  
                 line = br.readLine();
             }
-            // ingresando los nuevos parametros para la actualización.  
-              Scanner sc = new Scanner(System.in);
-             
-             
-              int montoDeposi = cantIn;
+         
+              String montOld = registroLinea.substring(3,7);
+              int montoDeposi = cantIn + Integer.parseInt(montOld);
               String fechaAct = getFec_in();
              
               String newString = "|" + id +"|"+ montoDeposi+"|"+ fechaAct + "|";

@@ -42,7 +42,17 @@ public class DPersona {
         return Contrasena;
     }
 
-    public void setContrasena(String Contrasena) {
+    public void setContrasena(String Contrasena) throws IOException {
+               Scanner sc = new Scanner(System.in);
+        RegistrarDatos Reg = new RegistrarDatos(this.Base);
+            while(Reg.BuscarCadena(Contrasena) || ((Contrasena.length()!=8 || esNumero(Contrasena)==false) && Contrasena.length()!=0) ){
+                if (Reg.BuscarCadena(Contrasena))
+                    System.out.println("---Ya existe\nIngrese otra CONTRASEÑA: ");
+                else if((Contrasena.length()!=8) && Contrasena.length()!=0)
+                    System.out.println("---Dato incorrecto\nIngrese CONTRASEÑA: ");
+                this.Contrasena = sc.next();
+            }
+    
         this.Contrasena = Contrasena;
     }
 
