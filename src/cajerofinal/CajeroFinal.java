@@ -9,7 +9,7 @@ public class CajeroFinal {
     public static void main(String[] args) throws IOException {
 
    Scanner sc = new Scanner(System.in);
-   int opc, opc2 =0, opc3 = 0, opc4 = 0, opc5 = 0;
+   int opc, opc2 =0, opc3 = 0, opc4 = 0, opc5 = 0,opc6;
    String U,P, rest = "";
    
    
@@ -164,11 +164,38 @@ public class CajeroFinal {
                      CAhorroSoles CS = new CAhorroSoles("AhorroSoles");
                      CS.ModificarDeposito(id, mont);
                           }catch(IOException e){
-                              System.out.println(e.toString());
-                          }
+                              System.out.println(e.toString());}
+                              break;
+                      case 2:
+                          break;
                   }
               }while(opc5 != 5);
-                    break;
+                    break; // case 2
+                  //RETIRO   
+                case 3 :    
+                      do {
+                  opc6 = Menu6();
+                  switch(opc6)
+                  {
+                      case 1: 
+                          try{
+                     System.out.println("***CUENTA AHORRO SOLES***"); 
+                     RegistrarDatos Reg = new RegistrarDatos("AhorroSoles");
+                     Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
+                     System.out.println("INGRESE SU ID CORRESPONDIENTE");
+                     String id = sc.next();
+                     System.out.println("INGRESE SU MONTO A RETIRAR");
+                     int mont = sc.nextInt();
+                     CAhorroSoles CS = new CAhorroSoles("AhorroSoles");
+                     CS.retiro(id, mont);
+                          }catch(IOException e){
+                              System.out.println(e.toString());}
+                              break;
+                      case 2:
+                          break;
+                  }
+              }while(opc6 != 5);
+                    break; // case 3 finall 
            
             } //Finaliza switch opc3
           }while(opc3!=5);
@@ -178,7 +205,7 @@ public class CajeroFinal {
    
     }
   
-    
+    /* **** CREACIÓN DE MENUS ***** */
     
  public static int Menu1()
     {
@@ -230,7 +257,7 @@ public class CajeroFinal {
             return 0;
         }   
     }
-      
+      // MENU 4 CREAR CUENTAS 
           public static int Menu4()
     {
         try{
@@ -247,13 +274,30 @@ public class CajeroFinal {
             return 0;
         }   
     }
-    // MENU 5
+    // MENU 5 DEPOSITO
           
          public static int Menu5()
     {
         try{
             Scanner sc = new Scanner(System.in);
             System.out.println("\nSeleccione una cuenta a depositar\n"
+            +"(1) AHORRO SOLES \n"
+            +"(2) CORRIENTES SOLES \n"
+            +"(3) AHORRO DOLARES\n"
+            +"(4) CORRIENTE DOLARES\n"
+            +"(5) SALIR\n");
+            return Integer.parseInt(sc.next());
+        }
+        catch(Exception e){
+            return 0;
+        }   
+    }
+     // MENU 6 RETIRO 
+        public static int Menu6()
+    {
+        try{
+            Scanner sc = new Scanner(System.in);
+            System.out.println("\nSeleccione una cuenta para retirar\n"
             +"(1) AHORRO SOLES \n"
             +"(2) CORRIENTES SOLES \n"
             +"(3) AHORRO DOLARES\n"

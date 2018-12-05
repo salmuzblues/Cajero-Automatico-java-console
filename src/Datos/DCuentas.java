@@ -7,11 +7,7 @@ import java.util.Scanner;
 
 public class DCuentas {
     
-    private int idcuenta;
-    private double doubCantCAhorroSoles;
-    private double doubCantCorrienteSoles;
-    private double doubCantAhorroDolares;
-    private double doubCantCorrienteDolares;
+    private int idcuenta; 
     private String Nombre;
     private String Descripcion;
     private String fec_in;
@@ -21,13 +17,7 @@ public class DCuentas {
     public int getIdcuenta() {
         return idcuenta;
     }
-      public double getDoubCantCAhorroSoles() {
-        return doubCantCAhorroSoles;
-    }
-
-    public void setDoubCantCAhorroSoles(double doubCantCAhorroSoles) {
-        this.doubCantCAhorroSoles = doubCantCAhorroSoles;
-    }
+    
     public void setIdcuenta(int idcuenta) {
         this.idcuenta = idcuenta;
     }
@@ -76,30 +66,6 @@ public class DCuentas {
         this.Base = Base;
     }
 
-
-    public double getDoubCantCorrienteSoles() {
-        return doubCantCorrienteSoles;
-    }
-
-    public void setDoubCantCorrienteSoles(double doubCantCorrienteSoles) {
-        this.doubCantCorrienteSoles = doubCantCorrienteSoles;
-    }
-
-    public double getDoubCantAhorroDolares() {
-        return doubCantAhorroDolares;
-    }
-
-    public void setDoubCantAhorroDolares(double doubCantAhorroDolares) {
-        this.doubCantAhorroDolares = doubCantAhorroDolares;
-    }
-
-    public double getDoubCantCorrienteDolares() {
-        return doubCantCorrienteDolares;
-    }
-
-    public void setDoubCantCorrienteDolares(double doubCantCorrienteDolares) {
-        this.doubCantCorrienteDolares = doubCantCorrienteDolares;
-    }
       public String getFec_in() {
         return fec_in;
     }
