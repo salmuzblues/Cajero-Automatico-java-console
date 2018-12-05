@@ -6,11 +6,12 @@ import java.util.Scanner;
 public class CajeroFinal {
 
  
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
    Scanner sc = new Scanner(System.in);
    int opc, opc2 =0, opc3 = 0, opc4 = 0, opc5 = 0;
-   String U,P;
+   String U,P, rest = "";
+   
    
   // menu Princial 
    do {
@@ -37,7 +38,7 @@ public class CajeroFinal {
                         System.out.println("Ingrese Nombre: "); Clie.setNombre(sc.nextLine());
                         System.out.println("Ingrese Apellido: "); Clie.setApellidos(sc.nextLine());
                         System.out.println("Ingrese DNI: "); Clie.setDNI(sc.nextLine());
-                        System.out.println("Ingrese 8 digitos//Contraseña: ");Clie.setContrasena(sc.nextLine());
+                        System.out.println("Ingrese 4 numeros para su Contraseña: ");Clie.setContrasena(sc.nextLine());
                         Clie.FechaActual();
                         Clie.RegistrarPersona();
                         System.out.println("¡Registro Guardado!"); 
@@ -104,13 +105,17 @@ public class CajeroFinal {
             }
         }while(opc!=7);
                     break;
-           case 2 :          
-                    do {
+           case 2 :  
+              
+            do{        
         System.out.println("Ingrese su Usuario: ");
         U=sc.nextLine();
         System.out.println("Ingrese su contraseña:");
         P=sc.nextLine();
-                    }while (!(U.equals("admin")&&P.equals("1234")));
+        DPersona p = new DPersona("Persona");
+         rest = p.verfUsuario(U, P);
+         }while (!(rest.equals("OK") ));
+            
                          // clienteMenu 
        do {
             opc3 = Menu3();

@@ -45,11 +45,11 @@ public class DPersona {
     public void setContrasena(String Contrasena) throws IOException {
                Scanner sc = new Scanner(System.in);
         RegistrarDatos Reg = new RegistrarDatos(this.Base);
-            while(Reg.BuscarCadena(Contrasena) || ((Contrasena.length()!=8 || esNumero(Contrasena)==false) && Contrasena.length()!=0) ){
+            while(Reg.BuscarCadena(Contrasena) || ((Contrasena.length()!=4 || esNumero(Contrasena)==false) && Contrasena.length()!=0) ){
                 if (Reg.BuscarCadena(Contrasena))
                     System.out.println("---Ya existe\nIngrese otra CONTRASEÑA: ");
-                else if((Contrasena.length()!=8) && Contrasena.length()!=0)
-                    System.out.println("---Dato incorrecto\nIngrese CONTRASEÑA: ");
+                else if((Contrasena.length()!=4 || esNumero(Contrasena)==false) && Contrasena.length()!=0)
+                    System.out.println("---Dato incorrecto\nIngrese 4 numeros para su CONTRASEÑA: ");
                 this.Contrasena = sc.next();
             }
     
@@ -229,6 +229,18 @@ public class DPersona {
         }
         
         
+    }
+    // verificacion de Usuario  y Password
+    public String verfUsuario (String user, String password) throws IOException{
+        
+        RegistrarDatos Reg = new RegistrarDatos(this.Base); 
+          String registroLinea = Reg.EncontrarCadena(user);
+           boolean resultado1 = registroLinea.contains(user);
+           boolean resultado2 = registroLinea.contains(password);
+           if (resultado1 && resultado2)
+               return "OK";
+           else 
+               return "NO"; 
     }
     
     // FECHA ACTUAL AUTOMATICA     
