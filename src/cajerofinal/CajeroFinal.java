@@ -142,9 +142,21 @@ public class CajeroFinal {
                              }
                     break;
                  case 2 : 
+                        try {
+                     System.out.println("***CUENTA CORRIENTE SOLES***"); 
+                     CCorrienteSoles CRS = new CCorrienteSoles("CorrienteSoles");
+                         System.out.println("Ingrese la Cantidad a Iniciar");
+                         int cant  = sc.nextInt();
+                        CRS.setIntCantCorrienteSoles(cant);
+                        CRS.FechaActual();
+                        CRS.RegistrarCuentaCorrienteSoles();
+                     
+                     }catch(IOException e){
+                               System.out.println(e.toString());
+                             }
                     break;
                  case 3 :
-                      try {
+                   try {
                      System.out.println("***CUENTA AHORRO DOLARES***"); 
                      CAhorroDolares CD = new CAhorroDolares("AhorroDolares");
                          System.out.println("Ingrese la Cantidad a Iniciar");
@@ -168,7 +180,7 @@ public class CajeroFinal {
                   {
                       case 1: 
                           try{
-                     System.out.println("***CUENTA AHORRO SOLES***"); 
+                     System.out.println("*** DEPOSITO//CUENTA AHORRO SOLES***"); 
                      RegistrarDatos Reg = new RegistrarDatos("AhorroSoles");
                      Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
                      System.out.println("INGRESE SU ID CORRESPONDIENTE");
@@ -185,7 +197,7 @@ public class CajeroFinal {
                           break;
                       case 3:
                              try{
-                     System.out.println("***CUENTA AHORRO DOLARES***"); 
+                     System.out.println("***DEPOSITO//CUENTA AHORRO DOLARES***"); 
                      RegistrarDatos Reg = new RegistrarDatos("AhorroDolares");
                      Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
                      System.out.println("INGRESE SU ID CORRESPONDIENTE");
@@ -209,7 +221,7 @@ public class CajeroFinal {
                   {
                       case 1: 
                           try{
-                     System.out.println("***CUENTA AHORRO SOLES***"); 
+                     System.out.println("***RETIRO//CUENTA AHORRO SOLES***"); 
                      RegistrarDatos Reg = new RegistrarDatos("AhorroSoles");
                      Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
                      System.out.println("INGRESE SU ID CORRESPONDIENTE");
@@ -226,7 +238,7 @@ public class CajeroFinal {
                           break;
                       case 3:
                               try{
-                     System.out.println("***CUENTA AHORRO DOLARES***"); 
+                     System.out.println("***RETIRO//CUENTA AHORRO DOLARES***"); 
                      RegistrarDatos Reg = new RegistrarDatos("AhorroDolares");
                      Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
                      System.out.println("INGRESE SU ID CORRESPONDIENTE");
