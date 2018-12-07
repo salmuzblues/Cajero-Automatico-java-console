@@ -169,6 +169,20 @@ public class CajeroFinal {
                                System.out.println(e.toString());
                              }
                      break;
+                 case 4 :
+                         try {
+                     System.out.println("***CUENTA CORRIENTE DOLARES***"); 
+                     CCorrienteDolares CRD = new CCorrienteDolares("CorrienteDolares");
+                         System.out.println("Ingrese la Cantidad a Iniciar");
+                         int cant  = sc.nextInt();
+                        CRD.setIntCantCorrienteDolares(cant);
+                        CRD.FechaActual();
+                        CRD.RegistrarCuentaCorrienteDolares();
+                     
+                     }catch(IOException e){
+                               System.out.println(e.toString());
+                             }
+                     break;
              }// Finaliza el Switch de cuentas a crear.
          }while(opc4 != 5);
              break;
@@ -194,18 +208,46 @@ public class CajeroFinal {
                               System.out.println(e.toString());}
                               break;
                       case 2:
+                               try{
+                     System.out.println("*** DEPOSITO//CUENTA CORRIENTE SOLES***"); 
+                     RegistrarDatos Reg = new RegistrarDatos("CorrienteSoles");
+                     Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
+                     System.out.println("INGRESE SU ID CORRESPONDIENTE");
+                     String id = sc.next();
+                     System.out.println("INGRESE SU MONTO A DEPOSITAR");
+                     int mont = sc.nextInt();
+                     CCorrienteSoles CCS = new CCorrienteSoles("CorrienteSoles");
+                     CCS.DepositoCorrienteSoles(id, mont);
+                     System.out.println("DEPOSITO REALIZADO CON EXITO!");
+                          }catch(IOException e){
+                              System.out.println(e.toString());}
                           break;
                       case 3:
                              try{
                      System.out.println("***DEPOSITO//CUENTA AHORRO DOLARES***"); 
                      RegistrarDatos Reg = new RegistrarDatos("AhorroDolares");
-                     Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
+                     Reg.ListarRegistros("|ID|CANTIDAD DOLARES|FECHA INGRESADA|", "*"); 
                      System.out.println("INGRESE SU ID CORRESPONDIENTE");
                      String id = sc.next();
                      System.out.println("INGRESE SU MONTO A DEPOSITAR");
                      int mont = sc.nextInt();
                      CAhorroDolares CD = new CAhorroDolares("AhorroDolares");
                      CD.DepositoDolares(id, mont);
+                     System.out.println("DEPOSITO REALIZADO CON EXITO!");
+                          }catch(IOException e){
+                              System.out.println(e.toString());}
+                          break;
+                      case 4:
+                            try{
+                     System.out.println("*** DEPOSITO//CUENTA CORRIENTE DOLARES***"); 
+                     RegistrarDatos Reg = new RegistrarDatos("CorrienteDolares");
+                     Reg.ListarRegistros("|ID|CANTIDAD DOLARES|FECHA INGRESADA|", "*"); 
+                     System.out.println("INGRESE SU ID CORRESPONDIENTE");
+                     String id = sc.next();
+                     System.out.println("INGRESE SU MONTO A DEPOSITAR");
+                     int mont = sc.nextInt();
+                     CCorrienteDolares CCD = new CCorrienteDolares("CorrienteDolares");
+                     CCD.DepositoCorrienteDolares(id, mont);
                      System.out.println("DEPOSITO REALIZADO CON EXITO!");
                           }catch(IOException e){
                               System.out.println(e.toString());}
@@ -235,18 +277,46 @@ public class CajeroFinal {
                               System.out.println(e.toString());}
                               break;
                       case 2:
+                               try{
+                     System.out.println("***RETIRO//CUENTA CORRIENTE SOLES***"); 
+                     RegistrarDatos Reg = new RegistrarDatos("CorrienteSoles");
+                     Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
+                     System.out.println("INGRESE SU ID CORRESPONDIENTE");
+                     String id = sc.next();
+                     System.out.println("INGRESE SU MONTO A RETIRAR");
+                     int mont = sc.nextInt();
+                     CCorrienteSoles CCS = new CCorrienteSoles("CorrienteSoles");
+                     CCS.retiroCorrienteSoles(id, mont);
+                     System.out.println("RETIRO REALIZADO CON EXITO!");
+                          }catch(IOException e){
+                              System.out.println(e.toString());}
                           break;
                       case 3:
                               try{
                      System.out.println("***RETIRO//CUENTA AHORRO DOLARES***"); 
                      RegistrarDatos Reg = new RegistrarDatos("AhorroDolares");
-                     Reg.ListarRegistros("|ID|CANTIDAD SOLES|FECHA INGRESADA|", "*"); 
+                     Reg.ListarRegistros("|ID|CANTIDAD DOLARES|FECHA INGRESADA|", "*"); 
                      System.out.println("INGRESE SU ID CORRESPONDIENTE");
                      String id = sc.next();
                      System.out.println("INGRESE SU MONTO A RETIRAR");
                      int mont = sc.nextInt();
                      CAhorroDolares CD = new CAhorroDolares("AhorroDolares");
                      CD.retiroDolares(id, mont);
+                     System.out.println("RETIRO REALIZADO CON EXITO!");
+                          }catch(IOException e){
+                              System.out.println(e.toString());}
+                          break;
+                      case 4:
+                          try{
+                     System.out.println("***RETIRO//CUENTA CORRIENTE DOLARES***"); 
+                     RegistrarDatos Reg = new RegistrarDatos("CorrienteDolares");
+                     Reg.ListarRegistros("|ID|CANTIDAD DOLARES|FECHA INGRESADA|", "*"); 
+                     System.out.println("INGRESE SU ID CORRESPONDIENTE");
+                     String id = sc.next();
+                     System.out.println("INGRESE SU MONTO A RETIRAR");
+                     int mont = sc.nextInt();
+                     CCorrienteDolares CCD = new CCorrienteDolares("CorrienteDolares");
+                     CCD.retiroCorrienteDolares(id, mont);
                      System.out.println("RETIRO REALIZADO CON EXITO!");
                           }catch(IOException e){
                               System.out.println(e.toString());}

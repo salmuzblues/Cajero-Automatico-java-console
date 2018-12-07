@@ -28,8 +28,6 @@ public class CAhorroSoles extends DCuentas{
         this.intCantCAhorroSoles = intCantCAhorroSoles;
     }
     
-   
-    
       // Registrar Cuentas.
        public void RegistrarCuentaSoles() throws IOException{
         RegistrarDatos Reg = new RegistrarDatos(getBase());
