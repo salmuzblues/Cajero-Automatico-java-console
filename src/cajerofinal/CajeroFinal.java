@@ -165,7 +165,7 @@ public class CajeroFinal {
                          CD.FechaActual();
                          CD.RegistrarCuentaDolares();
                      
-                     }catch(IOException e){
+                     }catch(IOException e){ 
                                System.out.println(e.toString());
                              }
                      break;
